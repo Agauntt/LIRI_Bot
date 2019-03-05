@@ -8,10 +8,16 @@ const axios = require('axios');
 
 function movieReport(){
 axios
-    .get("http://www.omdbapi.com/?t=" + statement + "&y=&plot=short&apikey=trilogy")
+    .get("http://www.omdbapi.com/?t=" + statement + "&y=&plot=short&apikey=trilogy&tomatoes=true")
     .then(function(response){
-        rating = response.data.imdbRating;
-        console.log("This movie got a rating of " + rating + " from IMDB");
+        console.log("Title: " + response.data.Title + 
+                    "\nYear of Release: " + response.data.Year +
+                    "\nRating: " + response.data.imdbRating +
+                    "\nRotten Tomatoes Rating: " + response.data.tomatoRating +
+                    "\nProduced in: " + response.data.Country + 
+                    "\nLanguage: " + response.data.Language +
+                    "\nPlot: " + response.data.Plot +
+                    "\nStarring: " + response.data.Actors);
     })
     .catch(function(error){
         if (error.response){
