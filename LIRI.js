@@ -4,6 +4,7 @@ var statement = process.argv[3];
 
 const fs = require('fs');
 const axios = require('axios');
+const keys = require('./keys');
 
 
 function movieReport(){
@@ -33,6 +34,8 @@ switch(operator) {
     case "spotify-this":
         console.log("feature not implemented yet");
         break;
+    case "concert-this":
+        console.log('Feature not implemented yet');
     default:
         console.log("invalid selector");
 }
